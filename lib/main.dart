@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ランダム座席指定システム',
+      title: '席を抽選！',
       home: RandomNamePicker(),
     );
   }
@@ -57,7 +57,13 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ランダム座席指定システム'),
+        title: Text(
+          '席を抽選！',
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -65,6 +71,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                autofocus: true,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: '参加者の人数を入力してください',
@@ -86,7 +93,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextField(
                         decoration: InputDecoration(
-                          labelText: '参加者 ${index +1} の名前を入力してください',
+                          labelText: '参加者 ${index + 1} の名前を入力してください',
                         ),
                         onChanged: (value) {
                           _names[index] = value;
@@ -102,9 +109,9 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
                 children: [
                   ElevatedButton(
                     onPressed: _clientCount > 0 ? _pickRandomNames : null,
-                    child: Text('抽選開始'),
+                    child: Text('抽選する'),
                   ),
-
+                    Image.network('https://4.bp.blogspot.com/-H7_kwlbyOu4/V-KLOPJJd7I/AAAAAAAA-Cs/b2TWRY3qD6Y64qldDg0OBrN55j278PDkwCLcB/s400/game_kuji_man.png'),
                 ],
               ),
             ),
@@ -143,7 +150,11 @@ class _ResultScreenState extends State<ResultScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ランダム座席決定システム'),
+        title: Text('席を抽選！',
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            )),
       ),
       body: Center(
         child: Column(
