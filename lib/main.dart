@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Random Name Picker',
+      title: 'ランダム座席指定システム',
       home: RandomNamePicker(),
     );
   }
@@ -51,7 +51,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Random Name Picker'),
+        title: Text('ランダム座席指定システム'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -61,7 +61,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
               child: TextField(
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: 'Enter the number of clients',
+                  labelText: '参加者の人数を入力してください',
                 ),
                 onChanged: (value) {
                   setState(() {
@@ -80,7 +80,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextField(
                         decoration: InputDecoration(
-                          labelText: 'Enter the name of client ${index + 1}',
+                          labelText: '参加者 ${index +1} の名前を入力してください',
                         ),
                         onChanged: (value) {
                           _names[index] = value;
@@ -94,7 +94,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: _clientCount > 0 ? _pickRandomNames : null,
-                child: Text('Pick Random Names'),
+                child: Text('抽選開始'),
               ),
             ),
           ],
@@ -113,14 +113,14 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Random Name Picker'),
+        title: Text('ランダム座席決定システム'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(names.length, (index) {
             return Text(
-              '${index + 1}. ${names[index]}',
+              '席${index + 1} ← ${names[index]}さん',
               style: TextStyle(fontSize: 24.0),
             );
           }),
