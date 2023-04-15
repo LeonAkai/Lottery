@@ -47,6 +47,12 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
     });
   }
 
+  void _shuffleNames() {
+    setState(() {
+      _names.shuffle();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,9 +98,14 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
               ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                onPressed: _clientCount > 0 ? _pickRandomNames : null,
-                child: Text('抽選開始'),
+              child: Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: _clientCount > 0 ? _pickRandomNames : null,
+                    child: Text('抽選開始'),
+                  ),
+
+                ],
               ),
             ),
           ],
@@ -104,10 +115,29 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
   }
 }
 
-class ResultScreen extends StatelessWidget {
+class ResultScreen extends StatefulWidget {
   final List<String> names;
 
   ResultScreen({required this.names});
+
+  @override
+  _ResultScreenState createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends State<ResultScreen> {
+  late List<String> _shuffledNames;
+
+  @override
+  void initState() {
+    super.initState();
+    _shuffledNames = List.from(widget.names)..shuffle();
+  }
+
+  void _shuffleNames() {
+    setState(() {
+      _shuffledNames.shuffle();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,19 +148,17 @@ class ResultScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(names.length, (index) {
+          children: List.generate(widget.names.length, (index) {
             return Text(
-              '席${index + 1} ← ${names[index]}さん',
+              '席${index + 1} ← ${_shuffledNames[index]}さん',
               style: TextStyle(fontSize: 24.0),
             );
           }),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: Icon(Icons.arrow_back),
+        onPressed: _shuffleNames,
+        child: Icon(Icons.refresh),
       ),
     );
   }
