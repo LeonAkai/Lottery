@@ -111,7 +111,8 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
                     onPressed: _clientCount > 0 ? _pickRandomNames : null,
                     child: Text('抽選する'),
                   ),
-                    Image.network('https://4.bp.blogspot.com/-H7_kwlbyOu4/V-KLOPJJd7I/AAAAAAAA-Cs/b2TWRY3qD6Y64qldDg0OBrN55j278PDkwCLcB/s400/game_kuji_man.png'),
+                  Image.network(
+                      'https://4.bp.blogspot.com/-H7_kwlbyOu4/V-KLOPJJd7I/AAAAAAAA-Cs/b2TWRY3qD6Y64qldDg0OBrN55j278PDkwCLcB/s400/game_kuji_man.png'),
                 ],
               ),
             ),
@@ -156,15 +157,23 @@ class _ResultScreenState extends State<ResultScreen> {
               fontWeight: FontWeight.bold,
             )),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(widget.names.length, (index) {
-            return Text(
-              '席${index + 1} ← ${_shuffledNames[index]}さん',
-              style: TextStyle(fontSize: 24.0),
-            );
-          }),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/haikei.jpeg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(widget.names.length, (index) {
+              return Text(
+                '席${index + 1} ← ${_shuffledNames[index]}さん',
+                style: TextStyle(fontSize: 24.0),
+              );
+            }),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -173,4 +182,6 @@ class _ResultScreenState extends State<ResultScreen> {
       ),
     );
   }
+
+
 }
