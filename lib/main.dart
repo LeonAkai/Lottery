@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 void main() => runApp(MyApp());
 
@@ -7,7 +6,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '席を抽選！',
+      title: 'Lottery',
+      theme: ThemeData(primarySwatch: Colors.grey,),
       home: RandomNamePicker(),
     );
   }
@@ -58,7 +58,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '席を抽選！',
+          'Lottery',
           style: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.bold,
@@ -112,7 +112,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
                     child: Text('抽選する'),
                   ),
                   Image.network(
-                      'https://4.bp.blogspot.com/-H7_kwlbyOu4/V-KLOPJJd7I/AAAAAAAA-Cs/b2TWRY3qD6Y64qldDg0OBrN55j278PDkwCLcB/s400/game_kuji_man.png'),
+                      'https://loosedrawing.com/assets/illustrations/png/903.png'),
                 ],
               ),
             ),
@@ -151,7 +151,7 @@ class _ResultScreenState extends State<ResultScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('席を抽選！',
+        title: Text('Lottery',
             style: TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.bold,
@@ -169,7 +169,7 @@ class _ResultScreenState extends State<ResultScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(widget.names.length, (index) {
               return Text(
-                '席${index + 1} ← ${_shuffledNames[index]}さん',
+                '席${index + 1} ← ${_shuffledNames[index]} 様',
                 style: TextStyle(fontSize: 24.0),
               );
             }),
@@ -177,6 +177,7 @@ class _ResultScreenState extends State<ResultScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blueGrey,
         onPressed: _shuffleNames,
         child: Icon(Icons.refresh),
       ),
