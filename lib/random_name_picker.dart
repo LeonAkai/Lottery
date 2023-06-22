@@ -26,11 +26,23 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
     setState(() {
       _names.shuffle();
     });
+
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ResultScreen(names: _names)),
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => ResultScreen(names: _names),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(1.0, 0.0),
+              end: Offset.zero,
+            ).animate(animation),
+            child: child,
+          );
+        },
+      ),
     ).then((value) {
-      // ResultScreenからの戻り値
+      // Return from ResultScreen
       _generateNames();
     });
   }
