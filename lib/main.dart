@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'random_name_picker.dart';
+import 'home_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +11,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: RandomNamePicker(),
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/background_image.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: HomeScreen(),
+        ),
+      ),
     );
   }
 }
