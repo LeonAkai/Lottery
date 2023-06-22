@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-#
+
 class ResultScreen extends StatefulWidget {
   final List<String> names;
 
