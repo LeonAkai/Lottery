@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'random_name_picker.dart';
 
-//
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
