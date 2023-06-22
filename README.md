@@ -1,11 +1,13 @@
 # Lottery(座席抽選アプリ)
 ![Component 1](https://github.com/LeonAkai/Lottery/assets/107756439/3313ddec-1200-47b9-85c2-96838de99a7d)
-<img src="[画像のURL](https://github.com/LeonAkai/Lottery/assets/107756439/9989d73e-0534-45fc-b035-642f6b67022c)" width="200" height="200">
+![スクリーンショット 2023-06-22 194328](https://github.com/LeonAkai/Lottery/assets/107756439/c9999c11-5e28-4c7c-9789-474c922df3bd)
+
 
 
 ・概要
 
 座席番号をランダムに抽選するアプリ
+![スクリーンショット 2023-06-22 194352](https://github.com/LeonAkai/Lottery/assets/107756439/01b6b5b4-127b-40c3-b228-f2d0d7c1c967)
 
 
 
@@ -30,12 +32,10 @@
 ・アプリ機能
 
 人数に応じた名前の入力欄表示
-![Screenshot_20230622_191857](https://github.com/LeonAkai/Lottery/assets/107756439/783cd80a-e200-4b13-a3c2-49fa782192d8)
+![スクリーンショット 2023-06-22 194430](https://github.com/LeonAkai/Lottery/assets/107756439/24ebc3e1-eb73-495b-a702-5c437fe505e6)
 
 ランダムに座席番号に参加者の名前を割り振り
-![Screenshot_20230622_191905](https://github.com/LeonAkai/Lottery/assets/107756439/6e9397ab-42f1-4180-be4f-bc81c86d4a7c)
 
 再抽選ボタンで抽選のやり直し(結果がまずかった用)
-![Screenshot_20230622_191914](https://github.com/LeonAkai/Lottery/assets/107756439/7a96de32-c9f6-4c97-9441-192006fb9c66)
 
 前の画面に戻る
