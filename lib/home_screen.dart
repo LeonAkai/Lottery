@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'random_name_picker.dart';
+
 //
 class HomeScreen extends StatelessWidget {
   @override
@@ -45,7 +46,13 @@ class HomeScreen extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => RandomNamePicker()),
                   );
                 },
-                child: Text('Start'),
+                child: Text(
+                  'Start',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(Size(150, 50)),
                 ),
