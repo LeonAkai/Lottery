@@ -1,6 +1,6 @@
 # Lottery(座席抽選アプリ)
 ![Component 1](https://github.com/LeonAkai/Lottery/assets/107756439/3313ddec-1200-47b9-85c2-96838de99a7d)
-![Screenshot_20230622_191730](https://github.com/LeonAkai/Lottery/assets/107756439/9989d73e-0534-45fc-b035-642f6b67022c)
+<img src="[画像のURL](https://github.com/LeonAkai/Lottery/assets/107756439/9989d73e-0534-45fc-b035-642f6b67022c)" width="200" height="200">
 
 
 ・概要
