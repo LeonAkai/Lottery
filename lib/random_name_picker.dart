@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'result_screen.dart';
-
+#
 class RandomNamePicker extends StatefulWidget {
   @override
   _RandomNamePickerState createState() => _RandomNamePickerState();
