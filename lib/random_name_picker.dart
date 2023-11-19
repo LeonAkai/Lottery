@@ -1,7 +1,11 @@
+// ignore_for_file: library_private_types_in_public_api, unused_element
+
 import 'package:flutter/material.dart';
 import 'result_screen.dart';
 
 class RandomNamePicker extends StatefulWidget {
+  const RandomNamePicker({super.key});
+
   @override
   _RandomNamePickerState createState() => _RandomNamePickerState();
 }
@@ -57,7 +61,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Lottery',
           style: TextStyle(
             fontSize: 40,
@@ -73,7 +77,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
               child: TextField(
                 autofocus: true,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: '参加者の人数を入力してください',
                 ),
                 onChanged: (value) {
@@ -109,7 +113,7 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
                 children: [
                   ElevatedButton(
                     onPressed: _clientCount > 0 ? _pickRandomNames : null,
-                    child: Text('抽選する'),
+                    child: const Text('抽選する'),
                   ),
                   Image.network(
                       'https://loosedrawing.com/assets/illustrations/png/903.png'),

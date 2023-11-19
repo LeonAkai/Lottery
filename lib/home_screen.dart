@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'random_name_picker.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Lottery',
           style: TextStyle(
             fontSize: 40,
@@ -17,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('images/Android Small - 1.png'),
                 fit: BoxFit.cover,
@@ -27,8 +29,8 @@ class HomeScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Spacer(),
-              Text(
+              const Spacer(),
+              const Text(
                 '皆さんのお席の番号を抽選いたします。',
                 style: TextStyle(
                   fontSize: 30,
@@ -37,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 300),
+              const SizedBox(height: 300),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -45,15 +47,15 @@ class HomeScreen extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => RandomNamePicker()),
                   );
                 },
-                child: Text(
+                style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all(const Size(150, 50)),
+                ),
+                child: const Text(
                   'Start',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(Size(150, 50)),
                 ),
               ),
             ],

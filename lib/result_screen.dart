@@ -1,9 +1,11 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatefulWidget {
   final List<String> names;
 
-  ResultScreen({required this.names});
+  const ResultScreen({super.key, required this.names});
 
   @override
   _ResultScreenState createState() => _ResultScreenState();
@@ -28,7 +30,7 @@ class _ResultScreenState extends State<ResultScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Lottery',
           style: TextStyle(
             fontSize: 40,
@@ -37,7 +39,7 @@ class _ResultScreenState extends State<ResultScreen> {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('images/haikei.jpeg'),
             fit: BoxFit.cover,
@@ -49,7 +51,7 @@ class _ResultScreenState extends State<ResultScreen> {
             children: List.generate(widget.names.length, (index) {
               return Text(
                 '席${index + 1} ← ${_shuffledNames[index]} 様',
-                style: TextStyle(fontSize: 24.0),
+                style: const TextStyle(fontSize: 24.0),
               );
             }),
           ),
@@ -58,7 +60,7 @@ class _ResultScreenState extends State<ResultScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blueGrey,
         onPressed: _shuffleNames,
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
     );
   }
