@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, unused_element
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'result_screen.dart';
@@ -48,12 +48,6 @@ class _RandomNamePickerState extends State<RandomNamePicker> {
     ).then((value) {
       // Return from ResultScreen
       _generateNames();
-    });
-  }
-
-  void _shuffleNames() {
-    setState(() {
-      _names.shuffle();
     });
   }
 

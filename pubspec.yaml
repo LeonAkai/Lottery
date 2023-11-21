@@ -31,8 +31,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  archive: ^3.4.9
+  docx_template: ^0.3.2
+  excel: ^3.0.0
+  file_picker: ^6.1.1
   flutter:
     sdk: flutter
+  path_provider: ^2.1.1
+  xml: ^5.4.1
 
 
   # The following adds the Cupertino Icons font to your application.

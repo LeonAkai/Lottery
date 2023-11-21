@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'random_name_picker.dart';
+import 'file_import_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +42,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 300),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RandomNamePicker()),
-                  );
-                },
+                onPressed: () => _showPickerOptions(context),
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(const Size(150, 50)),
                 ),
@@ -61,6 +57,40 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  void _showPickerOptions(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('名前の入力方法を選択'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RandomNamePicker()),
+                );
+              },
+              child: const Text('手動で入力'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FileImportScreen()),
+                );
+              },
+              child: const Text('ファイルから読み込む'),
+            ),
+          ],
+        ),
       ),
     );
   }
