@@ -91,51 +91,66 @@ class _ResultScreenState extends State<ResultScreen> {
       );
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Results'),
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/haikei.jpeg'),
-            fit: BoxFit.cover,
+        title: const Text(
+          'Lottery',
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        child: Center(
-          child: RepaintBoundary(
-            key: _tableKey,
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.8,
-              child: Table(
-                border: TableBorder.all(),
-                columnWidths: const <int, TableColumnWidth>{
-                  0: FlexColumnWidth(),
-                  1: FlexColumnWidth(),
-                },
-                children: List<TableRow>.generate(
-                  _shuffledNames.length,
-                  (index) {
-                    return TableRow(
-                      children: [
-                        TableCell(
-                          child: Container(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text('${index + 1}'),
-                          ),
-                        ),
-                        TableCell(
-                          child: Container(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text('${_shuffledNames[index]}様'),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
+      ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/haikei.jpeg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: RepaintBoundary(
+              key: _tableKey,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: SingleChildScrollView(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    child: Table(
+                      border: TableBorder.all(color: Colors.grey.withOpacity(0.2)),
+                      columnWidths: const <int, TableColumnWidth>{
+                        0: FlexColumnWidth(0.2),
+                        1: FlexColumnWidth(1.0),
+                      },
+                      children: List<TableRow>.generate(
+                        _shuffledNames.length,
+                        (index) {
+                          return TableRow(
+                            children: [
+                              TableCell(
+                                child: Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  alignment: Alignment.center,
+                                  child: Text('${index + 1}'),
+                                ),
+                              ),
+                              TableCell(
+                                child: Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  alignment: Alignment.center,
+                                  child: Text('${_shuffledNames[index]} 様'),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
